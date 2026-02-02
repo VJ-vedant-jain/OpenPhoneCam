@@ -19,21 +19,17 @@ After a functional release, we will update this part.
 
 What’s Done:
 
-Made a new UI section (cammy.ui) – will be linked with mainWindow.ui as a tab
-Added camera preview using OpenCV – need to figure out how to intercept a web stream via local IP and display it as video
-Start/Stop camera from buttons
-Set FPS and resolution from the UI
-Mirror video horizontally and vertically
-Aspect ratio options with cropping
-Status messages show what’s happening
-Save and load all settings to/from a JSON file
-Added menu actions: Save, Load, Exit
-Split code into multiple files: main.py, window.py, camera.py, settings.py
-Timer updates the video feed continuously
-All UI elements hooked up to real functionality (line edits, spin boxes, checkboxes, combo boxes)
+Merged ui files for one seamless gui
+refactored code into multiple files
+old code stored in a folder for reference (required for tab_main.py functionality)
 
 Currently Pending:
 
 Audio options, connection with mobile, better logging and error handling
-About/Documentation options in Help tab
-Linking cammy.ui with mainWindow.ui
+tab_main.py functionality
+tab_settings.py functionality + ui
+tab_about.py functionality + ui
+
+Add options in settings to change theme of ui. Current GUI defaults to Fusion theme instead of the system Breeze theme. 
+Unable to make pyqt use breeze theme unless adding device specific code. One way to counter is to use QSS files for the ui. 
+Would even provide consistent ui across different devices but cannot find good ones. Will take time to find good ones or will have to write our own (too hectic tbh). First option is to find some online but if nothing works, we may have to make one ourselves.
