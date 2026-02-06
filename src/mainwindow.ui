@@ -1,0 +1,908 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1260</width>
+    <height>791</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1260</width>
+    <height>791</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1260</width>
+    <height>791</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Scrcpy Camera Controller</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="MainPage">
+       <attribute name="title">
+        <string>Main</string>
+       </attribute>
+       <widget class="QFrame" name="frameLeft">
+        <property name="geometry">
+         <rect>
+          <x>4</x>
+          <y>0</y>
+          <width>421</width>
+          <height>721</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayoutLeft">
+         <item>
+          <widget class="QGroupBox" name="groupADB">
+           <property name="title">
+            <string>ADB Devices</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayoutADB">
+            <item>
+             <widget class="QListWidget" name="listADBDevices"/>
+            </item>
+            <item>
+             <widget class="QPushButton" name="refreshButtonADB">
+              <property name="text">
+               <string>Refresh Devices</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="connectButtonADB">
+              <property name="text">
+               <string>Connect</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="disconnectButtonADB">
+              <property name="text">
+               <string>Disconnect</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupBattery">
+           <property name="title">
+            <string>Battery Percentage</string>
+           </property>
+           <layout class="QVBoxLayout" name="verticalLayoutBattery">
+            <item>
+             <widget class="QProgressBar" name="batteryPercentage">
+              <property name="value">
+               <number>0</number>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QFrame" name="frameMiddle">
+        <property name="geometry">
+         <rect>
+          <x>420</x>
+          <y>0</y>
+          <width>371</width>
+          <height>731</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayoutMiddle">
+         <item>
+          <widget class="QPushButton" name="buttonStartScrcpy">
+           <property name="text">
+            <string>Start scrcpy</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="buttonStopScrcpy">
+           <property name="text">
+            <string>Stop scrcpy</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="switchToTCPIP">
+           <property name="text">
+            <string>Switch to TCP/IP Connection</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupOptions">
+           <property name="title">
+            <string>Options</string>
+           </property>
+           <layout class="QFormLayout" name="formLayoutOptions">
+            <item row="0" column="0">
+             <widget class="QLabel" name="labelBitrate_2">
+              <property name="text">
+               <string>Bitrate:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="lineBitrate">
+              <property name="placeholderText">
+               <string>Default: 8M</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="labelFPS_2">
+              <property name="text">
+               <string>FPS:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QLineEdit" name="lineFPS">
+              <property name="placeholderText">
+               <string>Default: 30</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="label_2">
+              <property name="text">
+               <string>Disable Control:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QLineEdit" name="lineDisableControl">
+              <property name="text">
+               <string/>
+              </property>
+              <property name="placeholderText">
+               <string>Default: False</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="labelOther">
+              <property name="text">
+               <string>Other Option:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QLineEdit" name="lineOther">
+              <property name="placeholderText">
+               <string>Default: N/A</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+         <item>
+          <widget class="QGroupBox" name="groupOptions_2">
+           <property name="title">
+            <string>Screenshot</string>
+           </property>
+           <layout class="QFormLayout" name="formLayoutOptions_2">
+            <item row="0" column="0">
+             <widget class="QLabel" name="labelOther_2">
+              <property name="text">
+               <string>Saved Location:</string>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QLineEdit" name="lineOther_2">
+              <property name="placeholderText">
+               <string>Default: N/A</string>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="0" colspan="2">
+             <widget class="QPushButton" name="pushButton_4">
+              <property name="text">
+               <string>Screenshot</string>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="0" colspan="2">
+             <widget class="QPushButton" name="pushButton_3">
+              <property name="text">
+               <string>Open File Location</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QGroupBox" name="groupTerminal">
+        <property name="geometry">
+         <rect>
+          <x>788</x>
+          <y>0</y>
+          <width>461</width>
+          <height>721</height>
+         </rect>
+        </property>
+        <property name="title">
+         <string>Debug Panel</string>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayoutTerminal">
+         <item>
+          <widget class="QTextEdit" name="textTerminal">
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="CammyPage">
+       <attribute name="title">
+        <string>Cammy</string>
+       </attribute>
+       <layout class="QHBoxLayout" name="horizontalLayout_cammy">
+        <item>
+         <widget class="QGroupBox" name="videoPreviewGroup">
+          <property name="minimumSize">
+           <size>
+            <width>800</width>
+            <height>300</height>
+           </size>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_preview">
+           <item>
+            <widget class="QLabel" name="labelVideoPreview">
+             <property name="minimumSize">
+              <size>
+               <width>720</width>
+               <height>480</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    background-color: #000000;
+    border: 2px solid #555555;
+}</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="scaledContents">
+              <bool>false</bool>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignmentFlag::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="labelPreviewStatus">
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    color: #888888;
+    font-style: italic;
+}</string>
+             </property>
+             <property name="text">
+              <string>No video signal</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignmentFlag::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_cammy">
+          <property name="sizeConstraint">
+           <enum>QLayout::SizeConstraint::SetDefaultConstraint</enum>
+          </property>
+          <item>
+           <widget class="QGroupBox" name="connectionGroup">
+            <property name="title">
+             <string>Connection Settings</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_conn">
+             <item row="0" column="0">
+              <widget class="QLabel" name="labelIP">
+               <property name="text">
+                <string>Device IP:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="lineEditIP">
+               <property name="placeholderText">
+                <string>192.168.1.100</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="labelPort">
+               <property name="text">
+                <string>Port:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="lineEditPort">
+               <property name="text">
+                <string>4747</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0" colspan="2">
+              <widget class="QCheckBox" name="checkBoxUSB">
+               <property name="text">
+                <string>Connect via USB (ADB)</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="videoSettingsGroup">
+            <property name="title">
+             <string>Video Settings</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_vid">
+             <item row="0" column="0">
+              <widget class="QLabel" name="labelResolution">
+               <property name="text">
+                <string>Resolution:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="0" column="1">
+              <widget class="QLineEdit" name="lineEditResolution">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="labelFPS">
+               <property name="text">
+                <string>FPS:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="1">
+              <widget class="QLineEdit" name="lineEditFPS">
+               <property name="text">
+                <string/>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="labelBitrate">
+               <property name="text">
+                <string>Bitrate (kbps):</string>
+               </property>
+              </widget>
+             </item>
+             <item row="2" column="1">
+              <widget class="QSpinBox" name="spinBoxBitrate">
+               <property name="minimum">
+                <number>500</number>
+               </property>
+               <property name="maximum">
+                <number>10000</number>
+               </property>
+               <property name="singleStep">
+                <number>500</number>
+               </property>
+               <property name="value">
+                <number>2000</number>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <widget class="QLabel" name="labelRatio">
+               <property name="text">
+                <string>Aspect Ratio:</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="1">
+              <widget class="QComboBox" name="comboBoxAspectRatio">
+               <item>
+                <property name="text">
+                 <string>Auto</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>16:9</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>4:3</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>1:1</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>21:9</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>9:16</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>3:2</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="audioSettingsGroup">
+            <property name="title">
+             <string>Audio Settings</string>
+            </property>
+            <layout class="QGridLayout" name="gridLayout_audio">
+             <item row="1" column="1">
+              <widget class="QComboBox" name="comboBoxSampleRate">
+               <item>
+                <property name="text">
+                 <string>44100 Hz</string>
+                </property>
+               </item>
+               <item>
+                <property name="text">
+                 <string>48000 Hz</string>
+                </property>
+               </item>
+              </widget>
+             </item>
+             <item row="0" column="0">
+              <widget class="QCheckBox" name="checkBoxEnableAudio">
+               <property name="text">
+                <string>Enable Audio</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item row="1" column="0">
+              <widget class="QLabel" name="labelSampleRate">
+               <property name="text">
+                <string>Sample Rate:</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QGroupBox" name="advancedGroup">
+            <property name="title">
+             <string>Advanced</string>
+            </property>
+            <layout class="QVBoxLayout" name="verticalLayout_adv">
+             <item>
+              <widget class="QCheckBox" name="checkBoxMirror_yaxis">
+               <property name="text">
+                <string>Mirror Video (around y-axis)</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBoxMirror_xaxis">
+               <property name="text">
+                <string>Mirror Video (around x-axis)</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBoxKeepAwake">
+               <property name="text">
+                <string>Keep Device Awake</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QCheckBox" name="checkBoxLowLatency">
+               <property name="text">
+                <string>Low Latency Mode</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_cammy_btns">
+            <item>
+             <widget class="QPushButton" name="btnConnect">
+              <property name="styleSheet">
+               <string notr="true">QPushButton { 
+    background-color: #4CAF50; 
+    color: white; 
+    font-weight: bold; 
+    padding: 8px;
+}
+QPushButton:hover {
+    background-color: #45a049;
+}</string>
+              </property>
+              <property name="text">
+               <string>Connect</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="btnDisconnect">
+              <property name="enabled">
+               <bool>false</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QPushButton { 
+    background-color: #f44336; 
+    color: white; 
+    font-weight: bold; 
+    padding: 8px;
+}
+QPushButton:hover {
+    background-color: #da190b;
+}
+QPushButton:disabled {
+    background-color: #cccccc;
+}</string>
+              </property>
+              <property name="text">
+               <string>Disconnect</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QTextEdit" name="textEditStatus">
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>80</height>
+             </size>
+            </property>
+            <property name="readOnly">
+             <bool>true</bool>
+            </property>
+            <property name="placeholderText">
+             <string>Status messages will appear here...</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="SettingsPage">
+       <attribute name="title">
+        <string>Settings</string>
+       </attribute>
+       <widget class="QLabel" name="rezLabel">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>10</y>
+          <width>251</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Device Resolution (defaults to 640x480) - </string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="widthLabel">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>50</y>
+          <width>58</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Width - </string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="heightLabel">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>47</y>
+          <width>51</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Height -   </string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="rezWidth">
+        <property name="geometry">
+         <rect>
+          <x>70</x>
+          <y>40</y>
+          <width>71</width>
+          <height>32</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="rezHeight">
+        <property name="geometry">
+         <rect>
+          <x>200</x>
+          <y>40</y>
+          <width>71</width>
+          <height>32</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="frameRateLabel1">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>80</y>
+          <width>221</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Device Frame Rate (defauts to 30) - </string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="frameRateLabel2">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>110</y>
+          <width>71</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Frame Rate = </string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="deviceFrameRate">
+        <property name="geometry">
+         <rect>
+          <x>100</x>
+          <y>100</y>
+          <width>113</width>
+          <height>32</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="bitrateLabel1">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>140</y>
+          <width>541</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Device BitRate (Default = 8)</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="deviceBitRate">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>170</y>
+          <width>113</width>
+          <height>32</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="bitrateLabel2">
+        <property name="geometry">
+         <rect>
+          <x>150</x>
+          <y>170</y>
+          <width>211</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>MegaBits per second </string>
+        </property>
+       </widget>
+       <widget class="QPlainTextEdit" name="helpOutput">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>40</y>
+          <width>281</width>
+          <height>131</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QLabel" name="helpOutputLabel">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>10</y>
+          <width>251</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Detected ADB Serials and Camera IDs -  </string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="cameraIDLabel">
+        <property name="geometry">
+         <rect>
+          <x>20</x>
+          <y>210</y>
+          <width>261</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Camera ID (what camera you are using) - </string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="deviceID">
+        <property name="geometry">
+         <rect>
+          <x>290</x>
+          <y>200</y>
+          <width>113</width>
+          <height>32</height>
+         </rect>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="updateHelpOutput">
+        <property name="geometry">
+         <rect>
+          <x>520</x>
+          <y>190</y>
+          <width>121</width>
+          <height>34</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Update Output</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="About">
+       <attribute name="title">
+        <string>About</string>
+       </attribute>
+       <widget class="QLabel" name="signatureLabel">
+        <property name="geometry">
+         <rect>
+          <x>180</x>
+          <y>220</y>
+          <width>461</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Scrcpy GUI Camera Controller. Made with &lt;3 by Rudraksh Tiku (RudyDaBot)</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="controllerVersion">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>461</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Version = whatever the fuck it is, code's gonna control this text anyways...</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="scrcpyVersion">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>30</y>
+          <width>181</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>scrcpy version - lalalalallala</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="ADBVersion">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>50</y>
+          <width>231</width>
+          <height>18</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>ADB version = shimmy shimmy yay</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="kanavEasterEgg">
+        <property name="geometry">
+         <rect>
+          <x>140</x>
+          <y>100</y>
+          <width>411</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Kanav if you're reading this, you a bitch.</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="enableEgg">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>210</y>
+          <width>88</width>
+          <height>34</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Easter Egg</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

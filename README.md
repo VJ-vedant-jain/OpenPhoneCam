@@ -14,3 +14,17 @@ This project is NOT COMPLETE. Attempting to run it will give you...nothing.
 # Requirements
 
 After a functional release, we will update this part.
+
+# Notes for future
+
+What’s Done:
+
+main_tab has majority of its options linked. the few left are the ones which would require a bit of "thinking"
+
+Currently Pending:
+
+better logging and error handling
+about and settings tab ui
+few options in main and cammy tab currently do not have functionality and needs to be done.
+
+Discovered about toml files which we can use to setup the dependencies and all. Need to check it out and replace the current dependencies.txtw
